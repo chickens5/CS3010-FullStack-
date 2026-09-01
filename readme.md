@@ -51,12 +51,12 @@ Open terminal of working dir:
    
 ### DB setup
 
-  user_accounts
+ * user_accounts
     - id 
     - username
     - password
 
-  user_account_details
+  * user_account_details
     - id
     - user_id
     - firstname
