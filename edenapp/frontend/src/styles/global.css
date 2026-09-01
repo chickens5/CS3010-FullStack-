@@ -1,0 +1,514 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap");
+@font-face {
+    font-family: 'Montserrat Black';
+    src: url('@/fonts/MontserratBlack-3zOvZ.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@property --btn-inner {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: rgba(50, 62, 55, 0.35);
+}
+@property --btn-outer {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: rgba(50, 62, 55, 0.25);
+}
+@property --btn-glow-inner {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: rgba(255, 255, 255, 0);
+}
+@property --btn-glow-outer {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: rgba(255, 255, 255, 0);
+}
+@property --btn-reflex-bottom-1 {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 0%;
+}
+@property --btn-reflex-bottom-2 {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 0%;
+}
+@property --btn-reflex-top-1 {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 0%;
+}
+@property --btn-reflex-top-2 {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 0%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat Black', sans-serif;
+    color: #e0f7fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background:
+            linear-gradient(to right, rgba(4, 47, 46, 0.11) 50%, rgba(102, 15, 61, 0.16) 50%),
+            url('../images/RAGHGHHH.gif');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    background-attachment: fixed;
+}
+
+
+.diods {
+    position: relative;
+    top: -2em;
+    display: flex;
+    gap: 2em;
+}
+
+.diod {
+    width: 1em;
+    height: 1em;
+    background-color: #567676;
+    border-radius: 99em;
+    box-shadow: inset -1px -2px 6px 2px rgba(0, 0, 0, 0.6), inset -2px -3px 6px 2px rgba(0, 0, 0, 0.5), inset 1px 2px 4px rgba(0, 0, 0, 0.6), inset 0px 1px 2px rgba(0, 0, 0, 0.8), inset 0 1px 2px 1px rgba(0, 0, 0, 0.4), 0 1px 1px 1px rgba(179, 230, 199, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.diod__active {
+    background-color: #4dff94;
+    box-shadow: inset -1px -2px 6px 2px rgba(0, 0, 0, 0.6), inset -2px -3px 6px 2px rgba(0, 0, 0, 0.5), inset 1px 2px 4px rgba(0, 0, 0, 0.6), inset 0px 1px 2px rgba(0, 0, 0, 0.8), inset 0 1px 2px 1px rgba(0, 0, 0, 0.4), 0 1px 1px 1px rgba(179, 230, 199, 0.1), 0 1px 12px 1px rgba(64, 191, 115, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.diod__active + .diod {
+    background: linear-gradient(to right, #5cd68d, #567676 45%);
+}
+
+.btns {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 2em 1.8em;
+    border-radius: 3.9em;
+    box-shadow: -3px -10px 20px -16px rgba(255, 255, 255, 0.1), 3px 10px 20px -10px rgba(0, 0, 0, 0.2);
+}
+.btns:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    border-radius: 3.9em;
+    box-shadow: -50px -102px 40px -120px #40bf73, -6px -40px 40px -40px rgba(255, 255, 255, 0.1), -3px -10px 20px -16px rgba(255, 255, 255, 0.1), 6px 40px 40px -32px rgba(0, 0, 0, 0.4), 3px 10px 20px -10px rgba(0, 0, 0, 0.2);
+    filter: blur(2px);
+}
+
+.btn {
+    --btn-inner: hsla(144deg 10% 22% / 35%);
+    --btn-outer: hsla(144deg 10% 22% / 25%);
+    --btn-glow-inner: hsla(144deg 83% 100% / 0%);
+    --btn-glow-outer: hsla(144deg 83% 100% / 0%);
+    --btn-reflex-bottom-1: 0%;
+    --btn-reflex-bottom-2: 0%;
+    --btn-reflex-top-1: 0%;
+    --btn-reflex-top-2: 0%;
+    position: relative;
+    z-index: 1;
+    background: radial-gradient(ellipse 140% 70% at 50% 100%, hsla(144deg 100% 70%/var(--btn-reflex-bottom-1)) 0%, hsla(144deg 100% 70%/var(--btn-reflex-bottom-2)) 30%, rgba(102, 255, 163, 0) 100%), radial-gradient(ellipse 140% 70% at 50% 0%, hsla(144deg 100% 70%/var(--btn-reflex-top-1)) 0%, hsla(144deg 100% 70%/var(--btn-reflex-top-2)) 30%, rgba(102, 255, 163, 0) 100%), radial-gradient(ellipse at 50% 10%, var(--btn-glow-inner), var(--btn-glow-outer)), radial-gradient(var(--btn-inner), var(--btn-outer));
+    border: none;
+    font-size: 24px;
+    width: 240px;
+    height: 60px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: rgba(232, 247, 238, 0.7);
+    border-radius: 99em;
+    text-shadow: 0 -1px rgba(38, 115, 69, 0.4);
+    box-shadow: inset 0 4px 1px -3px rgba(255, 255, 255, 0.1), inset 0 17px 2px -16px rgba(153, 255, 194, 0), inset 0 4px 8px 5px rgba(9, 11, 10, 0.16), 0 2px 0 1px #1a1e1c, 0 3px 0 -1px rgba(102, 204, 143, 0), inset 0 -1px 2px 1px rgba(255, 255, 255, 0), 0 1px 2px rgba(255, 255, 255, 0), 0 2px 0 rgba(255, 255, 255, 0), 0 4px 0 0 rgba(0, 255, 102, 0), 0 2px 0 3px rgba(0, 0, 0, 0.9), 0 3px 0 3px rgba(255, 255, 255, 0.04);
+    transition: --btn-glow-inner 200ms, --btn-inner 200ms, --btn-outer 200ms, --btn-reflex-bottom-1 500ms, --btn-reflex-bottom-2 500ms, --btn-reflex-top-1 500ms, --btn-reflex-top-2 500ms, box-shadow 200ms, text-shadow 400ms, transform 200ms;
+}
+.btn:hover {
+    --btn-glow-inner: hsla(144deg 83% 100% / 20%);
+    --btn-inner: hsla(144deg 50% 50% / 100%);
+    --btn-outer: hsla(144deg 83% 50% / 100%);
+    cursor: pointer;
+    color: white;
+    box-shadow: inset 0 -1px 2px 1px rgba(255, 255, 255, 0.3), inset 0 17px 2px -16px rgba(153, 255, 194, 0), inset 0 0 24px rgba(26, 77, 46, 0.3), 0 3px 0 1px rgba(68, 238, 136, 0.7), 0 3px 0 -1px rgba(102, 204, 143, 0), inset 0 -1px 2px 1px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(255, 255, 255, 0.8), 0 2px 16px rgba(255, 255, 255, 0.15), 0 4px 32px 2px rgba(0, 255, 102, 0.25), 0 3px 0 3px rgba(0, 0, 0, 0.8), 0 3px 0 4px rgba(38, 115, 69, 0.4);
+    text-shadow: 0 -1px rgba(38, 115, 69, 0.4), 0 0 4px rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+    transition: --btn-glow-inner 200ms, --btn-inner 200ms, --btn-outer 500ms, --btn-reflex-bottom-1 500ms, --btn-reflex-bottom-2 500ms, --btn-reflex-top-1 500ms, --btn-reflex-top-2 500ms, box-shadow 200ms, text-shadow 400ms, transform 200ms;
+}
+.btn:active {
+    transform: translateY(2px);
+    box-shadow: inset 0 -1px 2px 1px rgba(255, 255, 255, 0.3), inset 0 17px 2px -16px rgba(153, 255, 194, 0), inset 0 0 24px rgba(26, 77, 46, 0.3), 0 0px 0 1px rgba(68, 238, 136, 0.7), 0 1px 0 -1px rgba(102, 204, 143, 0), inset 0 -1px 2px 1px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(255, 255, 255, 0.8), 0 2px 16px rgba(255, 255, 255, 0.2), 0 4px 32px 2px rgba(0, 255, 102, 0.3), 0 0px 0 3px rgba(0, 0, 0, 0.5), 0 0px 1px 4px rgba(38, 115, 69, 0.4);
+    transition: --btn-glow-inner 200ms, --btn-inner 200ms, --btn-outer 500ms, --btn-reflex-bottom-1 500ms, --btn-reflex-bottom-2 500ms, --btn-reflex-top-1 500ms, --btn-reflex-top-2 500ms, box-shadow 200ms, text-shadow 400ms, transform 200ms;
+}
+.btn:has(+ .btn:hover) {
+    --btn-inner: hsla(144deg 10% 22% / 35%);
+    --btn-outer: hsla(144deg 10% 22% / 25%);
+    --btn-glow-inner: hsla(144deg 83% 100% / 0%);
+    --btn-glow-outer: hsla(144deg 83% 100% / 0%);
+    --btn-reflex-bottom-1: 15%;
+    --btn-reflex-bottom-2: 7%;
+    box-shadow: inset 0 4px 1px -3px rgba(255, 255, 255, 0.05), inset 0 17px 2px -16px rgba(153, 255, 194, 0), inset 0 4px 8px 5px rgba(9, 11, 10, 0.12), 0 2px 0 1px rgba(31, 51, 39, 0.7), 0 3px 0 -1px rgba(102, 204, 143, 0.5), inset 0 -7px 2px -6px rgba(153, 255, 194, 0.5), 0 0 8px rgba(255, 255, 255, 0), 0 2px 2px -3px rgba(153, 255, 194, 0.5), 0 8px 8px -6px rgba(0, 255, 102, 0.14), 0 2px 0 3px rgba(0, 0, 0, 0.9), 0 3px 0 3px rgba(22, 233, 106, 0.08);
+}
+.btn:hover + .btn {
+    --btn-inner: hsla(144deg 10% 22% / 35%);
+    --btn-outer: hsla(144deg 10% 22% / 25%);
+    --btn-glow-inner: hsla(144deg 83% 100% / 0%);
+    --btn-glow-outer: hsla(144deg 83% 100% / 0%);
+    --btn-reflex-top-1: 15%;
+    --btn-reflex-top-2: 7%;
+    box-shadow: inset 0 3px 2px -3px rgba(153, 255, 194, 0.5), inset 0 17px 2px -16px rgba(153, 255, 194, 0.2), inset 0 4px 8px 5px rgba(9, 11, 10, 0.06), 0 2px 0 1px #1a1e1c, 0 3px 0 -1px rgba(102, 204, 143, 0), inset 0 -1px 2px 1px rgba(255, 255, 255, 0), 0 1px 2px rgba(255, 255, 255, 0), 0 2px 0 rgba(255, 255, 255, 0), 0 4px 0 0 rgba(0, 255, 102, 0), 0 2px 0 3px rgba(0, 0, 0, 0.9), 0 3px 0 3px rgba(255, 255, 255, 0.04);
+}
+
+
+.page-container {
+    max-width: 1200px; /* Keep all pages centered & aligned */
+    margin: 0 auto;
+    padding: 20px;
+}
+/* ✅ Layout Containers */
+.app-container {
+    max-width: 900px;
+    width: 90%;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(27, 19, 2, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 255, 100, 0.59);
+    text-align: center;
+}
+
+
+.content-container {
+    background: rgba(10, 40, 30, 0.85);
+    max-width: 900px;
+    align-items: center;
+    width: 50%;
+    padding: 15px;
+    margin: 30px auto;
+    border: 0px solid #000000;
+    box-shadow: 6px 6px 0 #36523D, 10px 10px 0 #283D29;
+}
+
+.account-container {
+    background: rgba(10, 80, 40, 0.85);
+    border: 2px solid #0a5c5c;
+}
+
+h1 {
+    font-family: 'Montserrat Black', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 2.5rem;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: .5px;
+    color: #e0f7fa;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+
+.outline {
+    color: rgb(255, 243, 243);
+    text-shadow: rgb(169, 251, 255) 0px 0px 1px;
+    letter-spacing: 2px;
+    line-break: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.fancy {
+    @supports (background-clip: text) or (-webkit-background-clip: text) {
+        background-image:
+                url("data:image/svg+xml,%3Csvg width='2250' height='900' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Cpath fill='%2300A080' d='M0 0h2255v899H0z'/%3E%3Ccircle cx='366' cy='207' r='366' fill='%2300FDCF'/%3E%3Ccircle cx='0.5' cy='318.5' r='477.5' fill='%2300FDCF'/%3E%3Ccircle cx='1215' cy='737' r='366' fill='%23008060'/%3E%3C/g%3E%3C/svg%3E%0A");
+        background-size: 110% auto;
+        font-size: 50px;
+        background-position: center;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+}
+p, p1 {
+    font-family: 'Montserrat Black', sans-serif;
+    font-weight: bold;
+    color: rgb(161, 254, 255);
+}
+
+a {
+    color: #ffffff !important; /* Light teal */
+    text-decoration: none;
+}
+a:hover {
+    color: #00ffcc; /* Adjust to your glow effect */
+}
+.button {
+    display: inline-block;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #3a5a40, #588157); /* Deep forest green */
+    color: #fefae0; /* Soft earth tone */
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 3px solid #3a5a40; /* Dark green border */
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(34, 83, 54, 0.4); /* Subtle green glow */
+    width: 100%;
+    max-width: 250px;
+}
+
+/* 🌿 Earthy Button Hover */
+.button:hover {
+    background: linear-gradient(135deg, #588157, #8f9c69); /* Soft moss green */
+    color: #fefae0;
+    border-color: #8f9c69; /* Lighter earthy green */
+    transform: translateY(-3px) scale(1.05); /* Slight lift effect */
+    box-shadow: 0px 6px 15px rgba(34, 83, 54, 0.6); /* Stronger glow */
+}
+
+/* 🌿 Active Click Effect */
+.button:active {
+    transform: scale(0.97); /* Slight shrink on click */
+    box-shadow: 0px 3px 10px rgba(34, 83, 54, 0.8);
+}
+
+
+/* ✅ Forms */
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #057979;
+    border-radius: 8px;
+    background: #e0f7fa;
+    color: #042f2e;
+    margin-bottom: 15px;
+}
+.message-container {
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+.success {
+    background-color: #28a745;
+    color: white;
+    border: 2px solid #218838;
+}
+
+.error {
+    background-color: #dc3545;
+    color: white;
+    border: 2px solid #c82333;
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+label {
+    font-weight: bold;
+    color: #e0f7fa;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* ✅ Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+    .content-container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .button {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    input, select, textarea {
+        font-size: 0.9rem;
+    }
+
+    /* 🌱 Garden Cards */
+    .garden-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+}
+
+.logout-btn {
+    background: #d9534f; /* Red button */
+    color: white;
+    width: 50%;
+    border: none;
+    padding: 20px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.logout-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #588157, #780c38); /* Soft moss green */
+    color: #fefae0;
+    border-color: #8f9c69; /* Lighter earthy green */
+    transform: translateY(-3px) scale(1.05); /* Slight lift effect */
+    box-shadow: 0px 6px 15px rgba(34, 83, 54, 0.6); /* Stronger glow */
+}
+.gardens-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+.garden-card {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    padding-top: 25px;
+    padding-bottom: 50px;
+    margin: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.garden-card:hover {
+    transform: scale(1.02);
+}
+
+.garden-card-overlay {
+    background-color: rgba(0, 0, 0, 0.55);
+    color: white;
+    padding: 1rem;
+    border-radius: 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.garden-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.garden-card .button,
+.garden-card .edit-btn,
+.garden-card .delete-btn {
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 6px rgba(247, 255, 81, 0.62);
+    width: fit-content;
+}
+
+
+/* 🌿 Plant Cards */
+.plant-section {
+    margin-top: 30px;
+}
+
+.plant-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.plant-card {
+    width: 180px;
+    padding: 10px;
+    background: rgba(10, 80, 40, 0.85);
+    border: 2px solid #00f7ff;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #057979;
+    display: block;
+    margin: 10px auto;
+}
+
+.garden-title {
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-align: center;
+    background: rgba(82, 74, 54, 0.28);
+    color: #2a6827;
+}
+
+.garden-type {
+    font-size: 14px;
+    color: #555;
+}
+
+/*
+.garden-image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.garden-image {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.plants-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.plant-card {
+    background: #e9f5e9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: 0.3s ease-in-out;
+}
+
+.plant-card:hover {
+    transform: scale(1.02);
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.plant-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.plant-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}*/
+

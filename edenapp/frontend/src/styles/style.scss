@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap');
+
+@property --btn-inner {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: hsla(144deg 10% 22% / 35%);
+}
+
+@property --btn-outer {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: hsla(144deg 10% 22% / 25%);
+}
+
+
+@property --btn-glow-inner {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: hsla(144deg 83% 100% / 0%);
+}
+
+@property --btn-glow-outer {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: hsla(144deg 83% 100% / 0%);
+}
+
+@property --btn-reflex-bottom-1 {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --btn-reflex-bottom-2 {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --btn-reflex-top-1 {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --btn-reflex-top-2 {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+body {
+  background: 
+    radial-gradient(hsl(144 50 0 / 0%), hsl(144 50 0 / 24%)),
+    radial-gradient(circle at 50% 50%, hsl(144 50 0 / 0%), hsl(144 50 0 / 24%)),
+    linear-gradient(hsl(144 50 6 / 0%), hsl(144 50 6 / 30%)),
+    #262626;
+  -webkit-font-smoothing: antialiased;
+  
+  --btn-light-amount: 20%;
+
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.diods {
+  position: relative;
+  top: -2em;
+  display: flex;
+  gap: 2em;
+}
+
+.diod {
+  width: 1em;
+  height: 1em;
+  background-color: hsl(180 16 40);
+  border-radius: 99em;
+  box-shadow: 
+    inset -1px -2px 6px 2px hsl(144 50 0 / 60%),
+    inset -2px -3px 6px 2px hsl(144 50 0 / 50%),
+    
+    inset 1px 2px 4px hsl(144 50 0 / 60%),
+    inset 0px 1px 2px hsl(144 50 0 / 80%),
+    inset 0 1px 2px 1px hsl(144 50 0 / 40%),
+    
+    0 1px 1px 1px hsl(144 50 80 / 10%),
+    
+    0 0 0 1px hsl(144 50 0 / 50%);
+  
+  &__active {
+    background-color: hsl(144 100 65);
+    
+    box-shadow: 
+      inset -1px -2px 6px 2px hsl(144 50 0 / 60%),
+      inset -2px -3px 6px 2px hsl(144 50 0 / 50%),
+
+      inset 1px 2px 4px hsl(144 50 0 / 60%),
+      inset 0px 1px 2px hsl(144 50 0 / 80%),
+      inset 0 1px 2px 1px hsl(144 50 0 / 40%),
+
+      0 1px 1px 1px hsl(144 50 80 / 10%),
+      
+      0 1px 12px 1px hsl(144 50 50 / 40%),
+
+      0 0 0 1px hsl(144 50 0 / 50%);
+    
+    & + .diod {
+      background: linear-gradient(to right, hsl(144 60 60), hsl(180 16 40) 45%);
+    }
+  }
+}
+
+
+.btns {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 2em 1.8em;
+  border-radius: 3.9em;
+  box-shadow: 
+    -3px -10px 20px -16px hsl(144 50 100 / 10%),
+    3px 10px 20px -10px hsl(144 50 0 / 20%);
+  
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    
+    border-radius: 3.9em;
+    box-shadow: 
+      -50px -102px 40px -120px hsl(144 50 50 / 100%), // green reflex from diod
+      
+      -6px -40px 40px -40px hsl(144 50 100 / 10%),
+      -3px -10px 20px -16px hsl(144 50 100 / 10%),
+      6px 40px 40px -32px hsl(144 50 0 / 40%),
+      3px 10px 20px -10px hsl(144 50 0 / 20%);
+    filter: blur(2px)
+  }
+}
+
+
+.btn {
+  --btn-inner: hsla(144deg 10% 22% / 35%);
+  --btn-outer: hsla(144deg 10% 22% / 25%);
+  --btn-glow-inner: hsla(144deg 83% 100% / 0%);
+  --btn-glow-outer: hsla(144deg 83% 100% / 0%);
+  
+  --btn-reflex-bottom-1: 0%;
+  --btn-reflex-bottom-2: 0%;
+  --btn-reflex-top-1: 0%;
+  --btn-reflex-top-2: 0%;
+  
+  position: relative;
+  z-index: 1;
+  background: 
+    // bottom reflex
+    radial-gradient(
+        ellipse 140% 70% at 50% 100%, 
+        hsla(144deg 100% 70% / var(--btn-reflex-bottom-1)) 0%, 
+        hsla(144deg 100% 70% / var(--btn-reflex-bottom-2)) 30%, 
+        hsla(144deg 100% 70% / 0%) 100%),
+    // top reflex
+    radial-gradient(
+      ellipse 140% 70% at 50% 0%, 
+      hsla(144deg 100% 70% / var(--btn-reflex-top-1)) 0%, 
+      hsla(144deg 100% 70% / var(--btn-reflex-top-2)) 30%, 
+      hsla(144deg 100% 70% / 0%) 100%),
+    // top glow 
+    radial-gradient(
+      ellipse at 50% 10%, 
+      var(--btn-glow-inner), 
+      var(--btn-glow-outer)),
+    // main colors
+    radial-gradient(var(--btn-inner), var(--btn-outer));
+  border: none;
+  font-size: 24px;
+  width: 240px;
+  height: 60px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: hsl(144 50 94 / 70%);
+  border-radius: 99em;
+  text-shadow: 
+    0 -1px hsl(144 50 30 / 40%);
+  box-shadow: 
+      inset 0 4px 1px -3px hsl(144 50 100 / 10%), // inner glow on the top
+      inset 0 17px 2px -16px hsl(144 100 80 / 0%), // inner glow on the top 2
+    
+      inset 0 4px 8px 5px hsl(144 8 4 / 16%), // dark fade on the sides
+      0 2px 0 1px hsl(144 8 11 / 100%), // volume
+      0 3px 0 -1px hsl(144 50 60 / 0%), // volume 2
+    
+      inset 0 -1px 2px 1px hsl(144 50 100 / 0%), // inner glow 1
+      0 1px 2px hsl(144 50 100 / 0%), // inner glow 2
+      0 2px 0 hsl(144 100 100 / 0%), // outer glow 1
+      0 4px 0 0 hsl(144 100 50 / 0%), // outer glow 2
+      
+      0 2px 0 3px hsl(144 50 0 / 90%), // engrave
+      0 3px 0 3px hsl(144 50 100 / 4%) // engrave glow
+    ;
+  transition: 
+      --btn-glow-inner 200ms,
+      --btn-inner 200ms,
+      --btn-outer 200ms,
+      --btn-reflex-bottom-1 500ms,
+      --btn-reflex-bottom-2 500ms,
+      --btn-reflex-top-1 500ms,
+      --btn-reflex-top-2 500ms,
+      box-shadow 200ms,
+      text-shadow 400ms,
+      transform 200ms
+    ;
+  
+  &:hover {
+    --btn-glow-inner: hsla(144deg 83% 100% / 20%);
+    --btn-inner: hsla(144deg 50% 50% / 100%);
+    --btn-outer: hsla(144deg 83% 50% / 100%);
+    
+    cursor: pointer;
+    
+    color: hsl(144 50 100);
+    box-shadow: 
+        inset 0 -1px 2px 1px hsl(144 50 100 / 30%), // inner glow on the top
+        inset 0 17px 2px -16px hsl(144 100 80 / 0%), // inner glow on the top 2
+      
+        inset 0 0 24px hsl(144 50 20 / 30%), // dark fade on the sides
+        0 3px 0 1px hsl(144 83 60 / 70%), // volume
+        0 3px 0 -1px hsl(144 50 60 / 0%), // volume 2
+
+        inset 0 -1px 2px 1px hsl(144 50 100 / 50%), // inner glow 1
+        0 1px 2px hsl(144 50 100 / 80%), // inner glow 2
+        0 2px 16px hsl(144 100 100 / 15%), // outer glow 1
+        0 4px 32px 2px hsl(144 100 50 / 25%), // outer glow 2
+
+        0 3px 0 3px hsl(144 50 0 / 80%), // engrave
+        0 3px 0 4px hsl(144 50 30 / 40%) // engrave glow
+      ;
+    text-shadow: 
+      0 -1px hsl(144 50 30 / 40%),
+      0 0 4px hsl(144 50 100 / 40%);
+    transform: translateY(-1px);
+    
+    transition: 
+      --btn-glow-inner 200ms,
+      --btn-inner 200ms,
+      --btn-outer 500ms,
+      --btn-reflex-bottom-1 500ms,
+      --btn-reflex-bottom-2 500ms,
+      --btn-reflex-top-1 500ms,
+      --btn-reflex-top-2 500ms,
+      box-shadow 200ms,
+      text-shadow 400ms,
+      transform 200ms
+    ;
+  }
+  
+  &:active {
+    transform: translateY(2px);
+    
+    box-shadow: 
+        inset 0 -1px 2px 1px hsl(144 50 100 / 30%), // inner glow on the top
+        inset 0 17px 2px -16px hsl(144 100 80 / 0%), // inner glow on the top 2
+      
+        inset 0 0 24px hsl(144 50 20 / 30%), // dark fade on the sides
+        0 0px 0 1px hsl(144 83 60 / 70%), // volume
+        0 1px 0 -1px hsl(144 50 60 / 0%), // volume 2
+
+        inset 0 -1px 2px 1px hsl(144 50 100 / 50%), // inner glow 1
+        0 1px 2px hsl(144 50 100 / 80%), // inner glow 2
+        0 2px 16px hsl(144 100 100 / 20%), // outer glow 1
+        0 4px 32px 2px hsl(144 100 50 / 30%), // outer glow 2
+
+        0 0px 0 3px hsl(144 50 0 / 50%), // engrave
+        0 0px 1px 4px hsl(144 50 30 / 40%) // engrave glow
+      ;
+    
+    transition: 
+      --btn-glow-inner 200ms,
+      --btn-inner 200ms,
+      --btn-outer 500ms,
+      --btn-reflex-bottom-1 500ms,
+      --btn-reflex-bottom-2 500ms,
+      --btn-reflex-top-1 500ms,
+      --btn-reflex-top-2 500ms,
+      box-shadow 200ms,
+      text-shadow 400ms,
+      transform 200ms
+    ;
+  }
+  
+  // previous button
+  &:has(+ .btn:hover) {
+    --btn-inner: hsla(144deg 10% 22% / 35%);
+    --btn-outer: hsla(144deg 10% 22% / 25%);
+    --btn-glow-inner: hsla(144deg 83% 100% / 0%);
+    --btn-glow-outer: hsla(144deg 83% 100% / 0%);
+    
+    --btn-reflex-bottom-1: 15%;
+    --btn-reflex-bottom-2: 7%;
+    
+    box-shadow: 
+        inset 0 4px 1px -3px hsl(144 50 100 / 5%), // inner glow on the top
+        inset 0 17px 2px -16px hsl(144 100 80 / 0%), // inner glow on the top 2
+      
+        inset 0 4px 8px 5px hsl(144 8 4 / 12%), // dark fade on the sides
+        0 2px 0 1px hsl(144 24 16 / 70%), // volume
+        0 3px 0 -1px hsl(144 50 60 / 50%), // volume 2
+      
+        inset 0 -7px 2px -6px hsl(144 100 80 / 50%), // inner glow 1
+        0 0 8px hsl(144 50 100 / 0%), // inner glow 2
+        0 2px 2px -3px hsl(144 100 80 / 50%), // outer glow 1
+        0 8px 8px -6px hsl(144 100 50 / 14%), // outer glow 2
+
+        0 2px 0 3px hsl(144 50 0 / 90%), // engrave
+        0 3px 0 3px hsl(144 83 50 / 8%) // engrave glow
+      ;
+  }
+  
+  // next button
+  &:hover + .btn {
+    --btn-inner: hsla(144deg 10% 22% / 35%);
+    --btn-outer: hsla(144deg 10% 22% / 25%);
+    --btn-glow-inner: hsla(144deg 83% 100% / 0%);
+    --btn-glow-outer: hsla(144deg 83% 100% / 0%);
+    
+    --btn-reflex-top-1: 15%;
+    --btn-reflex-top-2: 7%;
+    
+    box-shadow: 
+        inset 0 3px 2px -3px hsl(144 100 80 / 50%), // inner glow on the top
+        inset 0 17px 2px -16px hsl(144 100 80 / 20%), // inner glow on the top 2
+      
+        inset 0 4px 8px 5px hsl(144 8 4 / 6%), // dark fade on the sides
+        0 2px 0 1px hsl(144 8 11 / 100%), // volume
+        0 3px 0 -1px hsl(144 50 60 / 0%), // volume 2
+
+        inset 0 -1px 2px 1px hsl(144 50 100 / 0%), // inner glow 1  
+        0 1px 2px hsl(144 50 100 / 0%), // inner glow 2
+        0 2px 0 hsl(144 100 100 / 0%), // outer glow 1
+        0 4px 0 0 hsl(144 100 50 / 0%), // outer glow 2
+
+        0 2px 0 3px hsl(144 50 0 / 90%), // engrave
+        0 3px 0 3px hsl(144 50 100 / 4%) // engrave glow
+      ;
+  }
+}

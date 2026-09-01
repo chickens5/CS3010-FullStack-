@@ -1,0 +1,147 @@
+.garden-form {
+
+    max-width: 900px;
+    width: 90%;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(27, 19, 2, 0.5);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.nav-links {
+    display: block;
+    flex-wrap: wrap;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+    flex-direction: row;
+    text-align: center;
+    column-gap: 500px;
+    row-gap: 500px;
+    align-content: space-between;
+    background: rgba(10, 255, 195, 0.43);
+    border: 5px solid rgba(51, 87, 168, 0.49);
+    box-shadow: 10px 3px 8px rgb(255, 255, 255);
+    border-radius: 8px;
+}
+    .navbar {
+        flex-direction: row;
+        text-align: justify-all;
+        padding: 10px;
+    }
+
+.blog-content iframe {
+    width: 100%;
+    height: 800px;
+    padding-bottom: 20px;
+    box-shadow: 15px 5px 25px 5px #00f8ff, 5px 5px 25px 20px #e78eff;
+}
+.message-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+.nav-button {
+        display: inline-block;
+        padding: 12px 20px;
+        background: linear-gradient(135deg, #3a5a40, #588157); /* Deep forest green */
+        color: #fefae0; /* Soft earth tone */
+        font-weight: bold;
+        text-transform: uppercase;
+        border: 3px solid #3a5a40; /* Dark green border */
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        box-shadow: 0px 4px 10px rgba(34, 83, 54, 0.4); /* Subtle green glow */
+        width: 50%;
+        max-width: 250px;
+    }
+
+.nav-button:hover {
+        background: linear-gradient(135deg, #588157, #8f9c69); /* Soft moss green */
+        color: rgba(0, 247, 255, 0.49);
+        border-color: #8f9c69; /* Lighter earthy green */
+        transform: translateY(-3px) scale(1.05); /* Slight lift effect */
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.6); /* Stronger glow */
+    }
+
+.nav-button:active {
+        transform: scale(0.97); /* Slight shrink on click */
+        box-shadow: 5px 3px 10px rgba(0, 247, 255, 0.56);
+    }
+
+.eden-title {
+    font-size: 5rem;
+    padding: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 5px; /* Adds spacing around the text */
+    /* ✅ Semi-transparent background overlay */
+    background: rgba(1, 48, 7, 0.35); /* Adjust the last value (0.35) for transparency */
+    /* ✅ Border with Glow Effect */
+    border: 3px solid #000000; /* Neon Teal Border */
+    box-shadow: 15px 5px 25px 5px rgba(1, 48, 7, 0.35), 5px 5px 25px 20px #524a36, 5px 5px 5px 5px #00f7ff;
+}  /* ✅ Footer */
+
+.account-links {
+    appearance: menulist-button;
+    row-gap: 10px;
+    column-gap: 10px;
+    background: rgba(10, 255, 195, 0.43);
+    border: 5px solid rgba(51, 87, 168, 0.49);
+    box-shadow: 10px 3px 8px rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+
+
+footer {
+        background: rgba(10, 80, 40, 0.85);
+        padding: 20px;
+        text-align: center;
+        margin-top: auto;
+        border-top: 3px solid #057979;
+    }
+
+footer p {
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+
+
+@media (max-width: 768px) {
+    .nav-links {
+        transition: 0.3s ease-in-out;
+        box-shadow: 0px 3px 8px rgba(255, 255, 255, 0.2);
+        flex-direction: row;
+        text-align: center;
+        column-gap: 55px;
+        row-gap: 10px;
+        align-items: center;
+        align-content: center;
+    }
+    .navbar {
+        flex-direction: row;
+        text-align: justify-all;
+        padding: 20px;
+    }
+}
