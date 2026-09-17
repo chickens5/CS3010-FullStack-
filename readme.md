@@ -16,12 +16,6 @@
 ## Getting Started
 
 ### Frontend 
-* After cloning the repo...
-Open terminal of working dir:
-
-`cd frontend`
-`npm install`
-`npm run dev`
 
 *Dependencies*
   - axios
@@ -36,11 +30,16 @@ Open terminal of working dir:
   - react-dom
   - react-router-dom
 
-#### Backend
-`cd backend`
-`npm install`
-`npm run start`
+* After cloning the repo...
+Open terminal of working dir:
 
+`cd frontend`
+`npm install`
+`npm run dev`
+
+
+
+#### Backend
  *Dependencies:*
    - brycypt
    - cors
@@ -48,7 +47,10 @@ Open terminal of working dir:
    - pg
    - winston
 
-   
+`cd backend`
+`npm install`
+`npm run start`
+
 ### DB setup
 
  * user_accounts

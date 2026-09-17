@@ -1,0 +1,7 @@
+node_modules/
+.env
+test/backend/node_modules/
+test/frontend/node_modules/
+main/backend/node_modules/
+main/frontend/node_modules/
+

@@ -1,0 +1,75 @@
+{
+    "Amsonia": {
+    "image": "/plantImgs/amsonia.jpg",
+    "url": "https://en.wikipedia.org/wiki/Amsonia",
+    "description": "Amsonia is a genus of flowering plants in the dogbane family, Apocynaceae, first described as a genus in 1788. It is native primarily to North America with one species in East Asia and another in the eastern Mediterranean. It was named in honor of the American physician John Amson. Members of the genus are commonly known as bluestars."
+  },
+  "Arnoglossum": {
+    "image": "/plantImgs/arnoglossum.jpg",
+    "url": "https://en.wikipedia.org/wiki/Arnoglossum",
+    "description": "Arnoglossum is a North American genus of plants in the family Asteraceae, described as a genus in 1817. They have the common name Indian plantain because they resemble the unrelated common plantain (Plantago spp.).\n\nArnoglossum is a member of the tribe Senecioneae which has been undergoing extensive revisions in recent years. Many of the species now in the genus were formerly classified in other genera such as Cacalia, Mesadenia, and Senecio. The remaining species are all native to North America (Ontario and eastern United States)."
+  },
+
+  "Carex": {
+    "image": "/plantImgs/carex.jpg",
+    "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderProfileResults.aspx?gen=Carex",
+    "description": "Carex is a vast genus of over 2,000 species of grass-like plants in the family Cyperaceae, commonly known as sedges (or seg, in older books). Other members of the family Cyperaceae are also called sedges, however those of genus Carex may be called true sedges, and it is the most species-rich genus in the family."
+  },
+"image": "/plantImgs/.jpg",
+  "url": "",
+  "description": "",
+    "Clematis": {
+    "image": "/plantImgs/clematis.jpg",
+    "description": ".Some species are shrubby, while others, like C. recta, are herbaceous perennial plants. The cool temperate species are deciduous, but many of the warmer climate species are evergreen. They grow best in cool, moist, well-drained soil in full sun.[10]\n\nClematis species are mainly found throughout the temperate regions of the Northern Hemisphere, rarely in the tropics. Clematis leaves are food for the caterpillars of some Lepidoptera species, including the willow beauty (Peribatodes rhomboidaria).\n\nThe timing and location of flowers varies; spring-blooming clematis flower on side shoots of the previous year's stems, summer/fall blooming clematis bloom only on the ends of new stems, and twice-flowering clematis do both.[5]"
+  },
+  "Cornus": {
+    "image": "/plantImgs/cornus.jpg",
+    "description": "Cornus is a genus of about 30–60 species[Note 1] of woody plants in the family Cornaceae, commonly known as dogwoods or cornels, which can generally be distinguished by their blossoms, berries, and distinctive bark.[3] Most are deciduous trees or shrubs, but a few species are nearly herbaceous perennial subshrubs, and some species are evergreen. Several species have small heads of inconspicuous flowers surrounded by an involucre of large, typically white petal-like bracts, while others have more open clusters of petal-bearing flowers. The various species of dogwood are native throughout much of temperate and boreal Eurasia and North America, with China, Japan, and the southeastern United States being particularly rich in native species.\n\nSpecies include the common dogwood Cornus sanguinea of Eurasia, the widely cultivated flowering dogwood (Cornus florida) of eastern North America, the Pacific dogwood Cornus nuttallii of western North America, the Kousa dogwood Cornus kousa of eastern Asia, and two low-growing boreal species, the Canadian and Eurasian dwarf cornels (or bunchberries), Cornus canadensis and Cornus suecica respectively."
+  },
+  "Coreopsis": {
+    "image": "/plantImgs/coreopsis.jpg",
+    "description": "These plants range from 46–120 centimetres (18–47 inches) in height. The flowers are usually yellow with a toothed tip, but can also be yellow-and-red bicolor or pink.[3] They have showy flower heads with involucral bracts in two distinct series of eight each, the outer being commonly connate at the base. The flat fruits are small and dry and look like insects.\n\nThere are nearly 40 species of Coreopsis, all of which are native to North, Central, and South America.[1] The name Coreopsis is derived from the Ancient Greek words κόρις (transl. grc – transl. koris), meaning \"bedbug\", and ὄψις (transl. grc – transl. opsis), meaning \"view\", referring to the shape of the achene.[4][5]"
+  },
+
+  "Echinacea": {
+    "image": "/plantImgs/echinacea.jpg",
+    "description": "Echinacea is a genus of herbaceous flowering plants in the daisy family. It has ten species, which are commonly called coneflowers. They are native only in eastern and central North America, where they grow in wet to dry prairies and open wooded areas. They have large, showy heads of composite flowers, blooming in summer. The generic name is derived from the Greek word ἐχῖνος (ekhinos), meaning \"hedgehog\", due to the spiny central disk. These flowering plants and their parts have different uses. Some species are cultivated in gardens for their showy flowers. Two of the species, E. tennesseensis and E. laevigata, were formerly listed in the United States as endangered species; E. tennesseensis has been delisted due to recovery[2] and E. laevigata is now listed as threatened."
+  },
+  "Heuchera": {
+    "image": "/plantImgs/heuchera.jpg",
+    "description": ""
+  },
+  "Monarda": {
+    "image": "/plantImgs/monarda.jpg",
+    "description": "Monarda bradburiana (Eastern Beebalm) and Monarda fistulosa (Wild Bergamot) are both bee balm species, but they have key differences in their size, habit, and flowering times. Monarda bradburiana is shorter, clumping, and blooms earlier in the season compared to Monarda fistulosa, which is taller and spreads more by underground runners.",
+    "url": "https://mdc.mo.gov/discover-nature/field-guide/wild-bergamot"
+  },
+  "Phlox": {
+    "image": "/plantImgs/phlox.jpg",
+    "description": "Perennial phlox is a tall, late-blooming perennial phlox with big, showy, fragrant clusters of flowers. The flowers are in dense, pyramidal, terminal clusters in many shades of purple, red-purple, rose, and rarely white. Cultivated forms come in many different colors and color patterns. The individual flowers have the typical phlox shape, with a narrow tube that flares out with 5 flat petal lobes. Blooms July–October. Leaves opposite, sessile (stalkless), oblong to lance-shaped, prominently veined, and spaced apart on stems.",
+    "url": "https://mdc.mo.gov/discover-nature/field-guide/perennial-phlox"
+  },
+  "Quercus": {
+    "image": "/plantImgs/quercus.jpg",
+    "description": "There are 22 species of oaks that grow native or are naturalized in Missouri. Also, more than 30 different oak hybrids (crosses between the various species) have been recorded in the state.\n\nThe oaks, which are related to beech, chestnut, and chinquapin, have several distinguishing characteristics. The fruit is the familiar acorn, a staple food for many species of wild animals. Leaves occur singly on alternate sides of the twig. Large pores are found in the springwood, and rays of wood radiate from the pith. Next to the acorn, the best identifying characteristic is the cluster or groups of buds found at the end of the twigs. The star-shaped pith of the twigs is characteristic also.",
+    "url": "https://mdc.mo.gov/discover-nature/field-guide/oaks"
+  },
+  "Tilia": {
+    "image": "/plantImgs/tilia.jpg",
+    "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a917",
+    "description": "Tilia americana, commonly called American basswood or American linden, is a medium to large deciduous tree which typically grows to 50-80’ (infrequently to over 100’) tall with an ovate-rounded crown. It is native to a variety of habitats from Quebec to the southeastern corner of Manitoba and far eastern North Dakota south to Oklahoma, Tennessee and North Carolina, with concentrations in forested areas of the Appalachian Mountains and along the Ohio River Valley to Missouri. Trees are found in both dry upland areas as well as moist, low woods. In Missouri, this tree typically occurs in rich woods, slopes, bluff bases and along streams throughout the State (Steyermark). This tree is noted for its (a) cymes of fragrant, pale yellow, late spring flowers, (b) small nutlets which follow the flowers and ripen by late summer, (c) mucilaginous sap, (d) noticeable winter buds, and (e) large ovate dark green leaves (to 6” long) with acuminate tips, serrate margins, often silvery undersides and uneven cordate bases. Flowers bloom in June in 5-10 flowered cymes. Each cyme droops from a showy, papery, narrow, leaf-like bract (to 5” long) where it is attached to the bract at a point somewhere between the base and midpoint. When a tree is in full bloom, bees often visit in such abundant numbers that humming can be heard many feet from the tree. Honey made from the nectar of these flowers is a prized gourmet item. Flowers have also been used to make tea. Syrup can be made from the sweet tree sap. Fall color is an undistinguished pale green to pale yellow. Winter twigs and buds are sometimes tinged with red."
+  },
+  "Tradescantia": {
+    "image": "/plantImgs/tradescantia.jpg",
+    "url": "https://en.wikipedia.org/wiki/Tradescantia",
+    "description": "Tradescantia (/ˌtrædəˈskæntiə/[4]) is a genus of 85 species[5] of herbaceous perennial wildflowers in the family Commelinaceae, native to the Americas from southern Canada to northern Argentina, including the West Indies. Members of the genus are known by many common names, including inchplant, wandering jew, spiderwort,[6] dayflower and trad.[7][8]\n\nTradescantia grow 30–60 cm tall (1–2 ft), and are commonly found individually or in clumps in wooded areas and open fields. They were introduced into Europe as ornamental plants in the 17th century and are now grown in many parts of the world. Some species have become naturalized in regions of Europe, Asia, Africa, and Australia, and on some oceanic islands.[3]\n\nThe genus's many species are of interest to cytogenetics because of evolutionary changes in the structure and number of their chromosomes.[9] They have also been used as bioindicators for the detection of environmental mutagens.[10] Some species have become pests to cultivated crops and considered invasive."
+  },
+  "Vernonia": {
+    "image": "/plantImgs/vernonia.jpg",
+    "url:": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=277605",
+    "description": "Vernonia arkansana, commonly called curlytop ironweed or Arkansas ironweed, is native from Illinois to Kansas south to Arkansas and Oklahoma. In Missouri, it typically occurs in gravel and sand bars along streams, slough margins, wet meadows, thickets, open woods, prairies and glades primarily in the Ozark region of the state (Steyermark). This plant is noted for its narrow, willow-like leaves, large flowering heads and narrow, twisting, involucral bracts. It is an upright perennial that typically grows on stiff, leafy, nearly glabrous stems which grow to 3-5’ tall in cultivation, but to as much as 6’ tall in the wild. Linear to linear-lanceolate leaves (to 7” long) are usually glabrous. Composite flowers, each with fluffy, pink-purple disks (rays absent), bloom in loose, corymbose cymes from late summer into fall. Flowers give way to rusty seed clusters. The source of the common name for vernonias has been varyingly attributed to certain “iron-like” plant qualities including tough stems, rusty-tinged fading flowers and rusty colored seeds. Notwithstanding its toughness, the plant is, with the exception of its attractive flowers, a somewhat unexceptional ornamental. Flowers are very attractive to butterflies. The within species is synonymous with and formerly known as V. crinita."
+  }
+}
+
+
+
