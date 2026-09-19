@@ -13,7 +13,7 @@ const Logout = ({ setIsAuthenticated, setIsGuest }) => {
         const confirmLogout = window.confirm(`Are you sure you want to log out, ${storedUsername || "Guest"}?`);
 
         if (confirmLogout) {
-            fetch("http://127.0.0.1:5000/api/logout", { method: "POST" })
+            fetch(`/api/logout`, { method: "POST" })
                 .then((res) => res.json())
                 .then(() => {
                     localStorage.removeItem("token");
@@ -29,7 +29,7 @@ const Logout = ({ setIsAuthenticated, setIsGuest }) => {
                 })
                 .catch((error) => {
                     console.error("Logout Error:", error);
-                    setMessage("⚠️ Error logging out.");
+                    setMessage("Error logging out.");
                 });
         } else {
             navigate("/account");

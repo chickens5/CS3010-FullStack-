@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ setIsAuthenticated, setIsGuest }) => {
+const Login = ({ setIsAuthenticated }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
@@ -12,27 +12,28 @@ const Login = ({ setIsAuthenticated, setIsGuest }) => {
         e.preventDefault();
 
             try {
-                const response = await axios.post("http://127.0.0.1:5000/api/login", {
+                const response = await axios.post(`/api/login`, {
                     username,
                     password,
                 });
 
                 const data = response.data;
 
-                console.log("Login Successful:", data);
                 localStorage.setItem("userId", data.user_id);
                 localStorage.setItem("token", data.access_token);
                 localStorage.setItem("username", data.username);
+
+                console.log("Login Successful!");
                 navigate("/account");
 
                 setIsAuthenticated(true);
-                setIsGuest(false);
+                // setIsGuest(false);
             } catch (error) {
-                console.error("❌Login error:", error);
+                console.error("LOGIN ERROR:", error);
                 if (error.response) {
                     setMessage(error.response.data.error);
                 } else {
-                    setMessage("⚠️ Could not connect to the server.");
+                    setMessage("Could not connect to the server.");
                 }
             }
         };

@@ -1,10 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-/* Hello Professor! I've been working on this for a while, but the
-Account data won't auto populate since I'm utilizing my postgres-db for the backend logic.
- */
-
 
 const Account = () => {
     const [account, setAccount] = useState(null);
@@ -15,28 +11,26 @@ const Account = () => {
     useEffect(() => {
         const fetchAccount = async () => {
             const userId = localStorage.getItem("userId");
-
-            console.log("++ ~ Retrieved userId from localStorage:", userId);
-
-            if (!userId) {
-                setMessage("xx ~ User not found. Please log in.");
+            const token = localStorage.getItem("token");
+            if (!userId || !token) {
+                console.log("User not found in local storage. Are you logged in?");
                 return;
             }
 
             try {
-                const response = await axios.get(`http://127.0.0.1:5000/api/account/${userId}`);
-                console.log("++ ~ Retrieved user data:", response.data);
-
+                const response = await axios.get(`/api/account/${userId}`, {
+                    headers: { Authorization: `Bearer ${token}` },
+                });
                 const data = response.data;
                 setAccount(data);
                 setEmail(data.email || "");
                 setProfilePicture(data.profile_picture || "");
+                console.log("Account fetched successfully.");
             } catch (error) {
-                console.error("❌ Fetch error:", error);
-                setMessage("⚠️ Could not fetch account.");
+                console.error("Fetch error:", error);
+                setMessage("Could not fetch account.");
             }
         };
-
 
         fetchAccount();
     }, []);
@@ -44,18 +38,20 @@ const Account = () => {
     const handleUpdate = async (e) => {
         e.preventDefault();
         const userId = localStorage.getItem("userId");
-
+        const token = localStorage.getItem("token");
         try {
-            const response = await axios.put(`http://127.0.0.1:5000/api/account/${userId}`, {
+            const response = await axios.put(`/api/account/${userId}`, {
                 email,
                 profile_picture: profilePicture,
+            }, {
+                headers: { Authorization: `Bearer ${token}` },
             });
 
             setMessage(response.data.message);
 
             alert("Account updated successfully!");
         } catch (error) {
-            console.error(" x ~ Update error:", error);
+            console.error("Update error:", error);
             setMessage("Could not update account.");
         }
     };
@@ -65,8 +61,7 @@ const Account = () => {
         <div className="page-container">
             <section className="app-container">
                 <h1 className="outline">Your Account</h1>
-
-
+                
                 {message && <p className="error">{message}</p>}
                 {account ? (
                     <div className="account-details">

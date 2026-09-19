@@ -24,7 +24,7 @@ const Account = () => {
             }
 
             try {
-                const response = await axios.get(`http://127.0.0.1:5000/api/account/${userId}`);
+                const response = await axios.get(`/api/account/${userId}`);
                 console.log("++ ~ Retrieved user data:", response.data);
 
                 const data = response.data;
@@ -46,7 +46,7 @@ const Account = () => {
         const userId = localStorage.getItem("userId");
 
         try {
-            const response = await axios.put(`http://127.0.0.1:5000/api/account/${userId}`, {
+            const response = await axios.put(`/api/account/${userId}`, {
                 email,
                 profile_picture: profilePicture,
             });

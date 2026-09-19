@@ -25,7 +25,7 @@ const GardenEditor = () => {
 
     const fetchGarden = async () => {
         try {
-            const res = await fetch(`http://127.0.0.1:5000/api/gardens/${usserId}`);
+            const res = await fetch(`/api/gardens/${usserId}`);
             const data = await res.json();
             setGarden(data);
             setGardenName(data.garden_name);
@@ -37,7 +37,7 @@ const GardenEditor = () => {
 
     const fetchPlants = async () => {
         try {
-            const res = await fetch(`http://127.0.0.1:5000/api/gardens/${GardenId}/plants`);
+            const res = await fetch(`/api/gardens/${GardenId}/plants`);
             const data = await res.json();
             setPlants(data);
         } catch (err) {

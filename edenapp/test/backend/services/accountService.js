@@ -1,11 +1,9 @@
-// accountService.js ~ GJ 9/16 1300
+// accountService.js ~ ~ GJ 9/19/26 1800 
 
-// Manages 
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { findUserByUsername, insertUser, insertUserDetails, findAccountById } from '../repositories/accountRepo.js';
-
-const JWT_SECRET = process.env.JWPW;
+import { findUserByUsername, insertUser, insertUserDetails, findAccountById, upsertAccountDetails } from '../repositories/accountRepo.js';
+import { JWT_SECRET } from './jwtSecret.js';
 
 // Returns HTTP status/message 
 function httpError(status, message) {
@@ -14,21 +12,7 @@ function httpError(status, message) {
     return err;
 }
 
-// ** UserAccount services ** 
-export async function getAccount(id) {
-    if (!id || isNaN(id)) {
-        throw httpError(400, "Invalid user ID");
-    }
-
-    const account = await findAccountById(parseInt(id));
-    if (!account) {
-        throw httpError(404, "User account not found");
-    }
-
-    return account;
-}
-
-
+// Register & Login User
 export async function registerUser({ username, password }) {
     if (!username || !password) {
         throw httpError(400, "All fields are required!");
@@ -64,9 +48,34 @@ export async function loginUser({ username, password }) {
         throw httpError(401, "Incorrect password");
     }
 
-    const access_token = jwt.sign({ user_id: user.id, username: user.username }, JWT_SECRET, { expiresIn: "7d" });
+    const access_token = jwt.sign({ user_id: user.id, username: user.username }, JWT_SECRET, { expiresIn: "1d" });
 
-    return { message: "Login successful!", access_token, user_id: user.id };
+    return { message: "Login successful!", access_token, user_id: user.id, username: user.username };
 }
 
-// *** User account detail services *** 
+
+// Get Account by ID
+export async function getAccount(id) {
+    if (!id || isNaN(id)) {
+        throw httpError(400, "Invalid user ID");
+    }
+
+    const account = await findAccountById(parseInt(id));
+    if (!account) {
+        throw httpError(404, "User account not found");
+    }
+
+    return account;
+}
+
+// Updates account details 
+export async function updateAccount(id, { email, profile_picture } = {}) {
+    if (!id || isNaN(id)) {
+        throw httpError(400, "Invalid user ID");
+    }
+    const account = await upsertAccountDetails(parseInt(id), { email, profile_picture });
+    if (!account) {
+        throw httpError(404, "User account not found");
+    }
+    return account;
+}

@@ -1,5 +1,14 @@
 node_modules/
+
 .env
+main/.env
+/test/.env
+/test/frontend/.env
+/test/backend/.env
+/main/frontend/.env
+/main/backend/.env
+
+
 test/backend/node_modules/
 test/frontend/node_modules/
 main/backend/node_modules/

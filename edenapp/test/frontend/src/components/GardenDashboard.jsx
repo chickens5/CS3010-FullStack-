@@ -22,14 +22,14 @@ const GardenDashboard = () => {
 
     useEffect(() => {
         if (!userId) {
-            setError("❌ User ID not found. Please log in.");
+            setError("User ID not found. Please log in.");
             setLoading(false);
             return;
         }
 
         const fetchGardens = async () => {
             try {
-                const res = await fetch(`http://127.0.0.1:5000/api/gardens/${userId}`);
+                const res = await fetch(`/api/gardens/${userId}`);
                 if (!res.ok) throw new Error("Failed to fetch gardens");
 
                 const data = await res.json();
@@ -47,7 +47,7 @@ const GardenDashboard = () => {
 
     const fetchPlants = async () => {
         try {
-            const res = await fetch(`http://127.0.0.1:5000/api/gardens/${gardenId}/plants`);
+            const res = await fetch(`/api/gardens/${gardenId}/plants`);
             const data = await res.json();
             setPlants(data);
         } catch (err) {
@@ -70,7 +70,7 @@ const GardenDashboard = () => {
         }
 
         try {
-            const response = await fetch(`http://127.0.0.1:5000/api/gardens/${userId}/create`, {
+            const response = await fetch(`/api/gardens/${userId}/create`, {
                 method: "POST",
                 body: formData, // Send as FormData
             });
@@ -109,7 +109,7 @@ const GardenDashboard = () => {
         if (imageFile) formData.append("imageFile", imageFile);
 
         try {
-            const response = await fetch(`http://127.0.0.1:5000/api/gardens/${gardenId}/edit`, {
+            const response = await fetch(`/api/gardens/${gardenId}/edit`, {
                 method: "PUT",
                 body: formData,
             });
@@ -134,13 +134,13 @@ const GardenDashboard = () => {
         }
 
         try {
-            const response = await fetch(`http://127.0.0.1:5000/api/gardens/${gardenId}`, {
+            const response = await fetch(`/api/gardens/${gardenId}`, {
                 method: "DELETE",
             });
 
-            if (!response.ok) throw new Error("⚠️ Failed to delete garden");
+            if (!response.ok) throw new Error("Failed to delete garden");
 
-            console.log("✅ Garden deleted:", gardenId);
+            console.log("Garden deleted:", gardenId);
 
             setGardens(gardens.filter(g => g.id !== gardenId));
         } catch (err) {
@@ -184,7 +184,7 @@ const GardenDashboard = () => {
                             className="garden-card"
                             style={{
                                 backgroundImage: garden.image_id
-                                    ? `url(http://127.0.0.1:5000/uploads/${garden.image_id})`
+                                    ? `url(/uploads/${garden.image_id})`
                                     : 'url(/default-garden.png)',
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center',

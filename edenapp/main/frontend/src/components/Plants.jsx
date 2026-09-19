@@ -26,7 +26,7 @@ const Plants = () => {
         if (!editingPlantId) return;
 
         try {
-            const res = await fetch(`http://127.0.0.1:5000/api/gardens/${gardenId}/plants/${editingPlantId}`, {
+            const res = await fetch(`/api/gardens/${gardenId}/plants/${editingPlantId}`, {
                 method: "PUT",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(editForm),
@@ -81,7 +81,7 @@ const Plants = () => {
             if (!editingPlantId) return;
 
             try {
-                const res = await fetch(`http://127.0.0.1:5000/api/gardens/${gardenId}/plants/${editingPlantId}`, {
+                const res = await fetch(`/api/gardens/${gardenId}/plants/${editingPlantId}`, {
                     method: "PUT",
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify(editForm),
@@ -102,7 +102,7 @@ const Plants = () => {
 
         const fetchGardenDetails = async () => {
             try {
-                const res = await fetch(`http://127.0.0.1:5000/api/garden/${gardenId}`);
+                const res = await fetch(`/api/garden/${gardenId}`);
                 if (!res.ok) throw new Error("⚠️ Failed to fetch garden details");
                 const data = await res.json();
                 setGarden(data); // ✅ Store garden data
@@ -130,7 +130,7 @@ const Plants = () => {
         }
 
         try {
-            const res = await fetch(`http://127.0.0.1:5000/api/gardens/${gardenId}/plants`, {
+            const res = await fetch(`/api/gardens/${gardenId}/plants`, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({
@@ -162,7 +162,7 @@ const Plants = () => {
 
     const deletePlant = async (plantId) => {
         try {
-            const res = await fetch(`http://127.0.0.1:5000/api/gardens/${gardenId}/plants/${plantId}`, {method: "DELETE"});
+            const res = await fetch(`/api/gardens/${gardenId}/plants/${plantId}`, {method: "DELETE"});
 
             if (!res.ok) throw new Error("⚠️ Failed to delete plant");
 
@@ -184,7 +184,7 @@ const Plants = () => {
                         <h1 className="outline">{garden.garden_name}</h1>
                         <div className="garden-header-img">
                             <img
-                                src={garden.image_id ? `http://127.0.0.1:5000/uploads/${garden.image_id}` : "/default-garden.png"}
+                                src={garden.image_id ? `/uploads/${garden.image_id}` : "/default-garden.png"}
                                 alt={garden.garden_name}
                                 className="header-image"
                             />
