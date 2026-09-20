@@ -20,7 +20,7 @@ export async function insertUser(username, hashedPassword) {
 
 export async function insertUserDetails(userId) {
     await pool.query(
-        'INSERT INTO user_account_details (user_id, email, profile_picture) VALUES ($1, NULL, NULL)',
+        'INSERT INTO user_account_details (user_id, firstname, lastname, bio, email, profile_picture) VALUES ($1, NULL, NULL, NULL, NULL, NULL)',
         [userId]
     );
 }
@@ -29,6 +29,9 @@ export async function findAccountById(id) {
     const result = await pool.query(
         `SELECT ua.id, ua.username, 
                 COALESCE(uad.email, '') AS email, 
+                COALESCE(uad.firstname, '') AS firstname,
+                COALESCE(uad.lastname, '') AS lastname,
+                COALESCE(uad.bio, '') AS bio,
                 COALESCE(uad.created_at, NOW()) AS created_at, 
                 COALESCE(uad.profile_picture, '/default-profile.png') AS profile_picture 
         FROM user_accounts ua 
@@ -40,8 +43,8 @@ export async function findAccountById(id) {
 }
 
 
-// Returns raw user account details after update
-export async function upsertAccountDetails(id, { email, profile_picture } = {}) {
+// Updates Account details if id matches
+export async function upsertAccountDetails(id, { email, firstname, lastname, bio, profile_picture } = {}) {
     const userDetailsCheck = await pool.query(
         'SELECT * FROM user_account_details WHERE user_id = $1',
         [id]
@@ -49,10 +52,10 @@ export async function upsertAccountDetails(id, { email, profile_picture } = {}) 
 
     if (userDetailsCheck.rows.length === 0) {
         const insertResult = await pool.query(
-            `INSERT INTO user_account_details (user_id, email, profile_picture)
-             VALUES ($1, $2, $3)
+            `INSERT INTO user_account_details (user_id, email, firstname, lastname, bio, profile_picture)
+             VALUES ($1, $2, $3, $4, $5, $6)
              RETURNING *`,
-            [id, email || null, profile_picture || null]
+            [id, email || null, firstname || null, lastname || null, bio || null, profile_picture || null]
         );
         return insertResult.rows[0];
     }
@@ -60,10 +63,13 @@ export async function upsertAccountDetails(id, { email, profile_picture } = {}) 
     const updateResult = await pool.query(
         `UPDATE user_account_details
          SET email = COALESCE($1, email),
-             profile_picture = COALESCE($2, profile_picture)
-         WHERE user_id = $3
+             firstname = COALESCE($2, firstname),
+             lastname = COALESCE($3, lastname),
+             bio = COALESCE($4, bio),
+             profile_picture = COALESCE($5, profile_picture)
+         WHERE user_id = $6
          RETURNING *`,
-        [email || null, profile_picture || null, id]
+        [email || null, firstname || null, lastname || null, bio || null, profile_picture || null, id]
     );
     return updateResult.rows[0];
 }

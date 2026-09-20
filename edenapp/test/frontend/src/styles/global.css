@@ -33,18 +33,6 @@ body {
     border-radius: 8px;
 }
 
-.nav-link{
-  position:relative;
-  color: white;
-  font-size:36px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration:none;
-  display:inline-block;
-  margin:20px;
-  padding:20px 40px;
-
-}
 .nav-link:hover{
     background-color: #4c3c74;
     transition: 1s;
@@ -68,7 +56,6 @@ body {
 
 
 .account-links {
-    appearance: menulist-button;
     row-gap: 10px;
     column-gap: 10px;
     background: rgba(10, 255, 195, 0.43);
@@ -95,10 +82,25 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 33;
-    border: 3px solid #000000; /* Neon Teal Border */
+    border: 3px solid #000000; 
     box-shadow: 15px 5px 25px 5px rgba(1, 48, 7, 0.35), 5px 5px 25px 20px #524a36, 5px 5px 5px 5px #00f7ff;
-}  
+}
 
+.title{
+  color: white;
+  font-size:36px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration:none;
+  margin:20px;
+  padding:20px 40px;
+}
+.title:hover {
+    background-color: #c7ffb13f;
+    transition: 1s;
+    width: 100%;
+
+}
 .content-container {
     background: rgba(10, 40, 30, 0.85);
     max-width: 900px;
@@ -117,17 +119,45 @@ body {
 
 /* -------------------- */
 
-/* Forms */
+/* Form, Inputs, & Buttons */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 input, select, textarea {
-    width: 100%;
-    padding: 10px;
     font-size: 1rem;
+    width: 50%;
+    height: 30px;
     border: 2px solid #057979;
     border-radius: 8px;
     background: #e0f7fa;
     color: #042f2e;
     margin-bottom: 15px;
 }
+
+#submit {
+    background-color: #74ca7b;
+    -moz-border-radius: 5px;
+    margin: 15px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #000000;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+}
+
+#submit:hover {
+    border: none;
+    background:rgb(9, 255, 0);
+    box-shadow: 0px 0px 1px #777;
+    font-size: 21px;
+}
+
 .message-container {
     padding: 12px;
     border-radius: 5px;
@@ -138,6 +168,15 @@ input, select, textarea {
     width: 100%;
 }
 
+label {
+    font-weight: bold;
+    color: #fafeff;
+    display: block;
+    margin-bottom: 5px;
+}
+/* -------------------- */
+
+/*  UI State messages */
 .success {
     background-color: #28a745;
     color: white;
@@ -150,18 +189,6 @@ input, select, textarea {
     border: 2px solid #c82333;
 }
 
-textarea {
-    height: 100px;
-    resize: none;
-}
-
-label {
-    font-weight: bold;
-    color: #e0f7fa;
-    display: block;
-    margin-bottom: 5px;
-}
-/* -------------------- */
 
 /* Mobile UI Adjustments */
 @media (max-width: 768px) {
@@ -181,7 +208,7 @@ label {
         align-content: center;
     }
 
-    input, select, textarea {
+    input, select {
         font-size: 0.9rem;
     }
 

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import api from "../utils/api";
 
 const Logout = ({ setIsAuthenticated, setIsGuest }) => {
     const navigate = useNavigate();
@@ -13,8 +14,7 @@ const Logout = ({ setIsAuthenticated, setIsGuest }) => {
         const confirmLogout = window.confirm(`Are you sure you want to log out, ${storedUsername || "Guest"}?`);
 
         if (confirmLogout) {
-            fetch(`/api/logout`, { method: "POST" })
-                .then((res) => res.json())
+            api.post(`/logout`)
                 .then(() => {
                     localStorage.removeItem("token");
                     localStorage.removeItem("userId");

@@ -5,26 +5,28 @@
 
 ![Home Page of App](image.png)
 
-*A React/Vite + Node/PostgreSQL fullstack application*
+*A React/Vite + Express/Node/PostgreSQL full stack framework*
 
 - Register an account
 - Update Account
 - Login
 - Logout
-- Currently implementing blog/data management feature
 
 ## Getting Started
+
+#### Overview:
+
+Each new user gets a JWT on register/login (signed server-side against Postgres-verified credentials via bcrypt). The frontend stores that token in `localStorage` and a shared axios instance (`frontend/src/utils/api.js`) automatically attaches it as a `Bearer` header on every API call via a request interceptor. Express verifies the token on protected routes (checking the token's `user_id` against the requested resource) before querying Postgres through the service/repository layers, and a response interceptor globally handles expired/invalid tokens (401s) by clearing storage and redirecting to login.
+
 
 ### Frontend 
 
 *Dependencies*
   - axios
-  - bcryptjs
   - body-parser
   - bootstrap
   - cors
   - express
-  - jsonwebtoken
   - lit
   - react
   - react-dom
@@ -37,11 +39,11 @@ Open terminal of working dir:
 `npm install`
 `npm run dev`
 
-
-
 #### Backend
  *Dependencies:*
    - brycypt
+   - jsonwebtoken
+   - bcryptjs
    - cors
    - express
    - pg

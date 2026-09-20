@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../utils/api";
 
 const Login = ({ setIsAuthenticated }) => {
     const [username, setUsername] = useState("");
@@ -12,7 +12,7 @@ const Login = ({ setIsAuthenticated }) => {
         e.preventDefault();
 
             try {
-                const response = await axios.post(`/api/login`, {
+                const response = await api.post(`/login`, {
                     username,
                     password,
                 });
@@ -47,16 +47,15 @@ const Login = ({ setIsAuthenticated }) => {
                 <section className="content-container">
                     <h2 className="outline">Welcome Back!</h2>
                 </section>
-                <section className="login-container">
+                <section>
                     {message && <p className="message">{message}</p>}
                     <form onSubmit={handleLogin}>
                         <label>Username:</label>
-                        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
-
+                        <input type="text" id ="username"value={username} onChange={(e) => setUsername(e.target.value)} required />
                         <label>Password:</label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-
-                        <button type="submit" className="button">Login</button>
+                        <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                        
+                        <button type="submit" id="submit">Login</button>
                     </form>
 
                 </section>

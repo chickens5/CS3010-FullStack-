@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 import { findUserByUsername, insertUser, insertUserDetails, findAccountById, upsertAccountDetails } from '../repositories/accountRepo.js';
 import { JWT_SECRET } from './jwtSecret.js';
 
-// Returns HTTP status/message 
+// Returns HTTP status
 function httpError(status, message) {
     const err = new Error(message);
     err.status = status;
@@ -69,11 +69,11 @@ export async function getAccount(id) {
 }
 
 // Updates account details 
-export async function updateAccount(id, { email, profile_picture } = {}) {
+export async function updateAccount(id, { email, firstname, lastname, bio, profile_picture } = {}) {
     if (!id || isNaN(id)) {
         throw httpError(400, "Invalid user ID");
     }
-    const account = await upsertAccountDetails(parseInt(id), { email, profile_picture });
+    const account = await upsertAccountDetails(parseInt(id), { email, firstname, lastname, bio, profile_picture });
     if (!account) {
         throw httpError(404, "User account not found");
     }

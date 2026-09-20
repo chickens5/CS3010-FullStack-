@@ -5,7 +5,7 @@ function Header({ isAuthenticated, handleLogout }) {
         <header>
             <div className='title-container'>
                 
-                <Link className ="nav-link" to="/">Return to Eden</Link>
+                <Link className ="title" to="/">Return to Eden</Link>
             
             </div>
 

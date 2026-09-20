@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../utils/api";
 
 
 const Register = () => {
@@ -28,33 +29,23 @@ const Register = () => {
         }
 
         try {
-            const response = await fetch(`/api/register`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, password }), // Do not include confirmPassword
-            });
+            const response = await api.post(`/register`, { username, password });
+            const data = response.data;
 
-            const data = await response.json();
+            console.log("Register Successful:", data);
+            localStorage.setItem("userId", data.user_id);
+            localStorage.setItem("token", data.access_token);
+            localStorage.setItem("username", data.username);
 
-            if (response.ok) {
-                console.log("Register Successful:", data);
-                localStorage.setItem("userId", data.user_id);
-                localStorage.setItem("token", data.access_token);
-                localStorage.setItem("username", data.username);
+            setMessage("Registration successful! Redirecting...");
+            setMessageType("success");
 
-                setMessage("Registration successful! Redirecting...");
-                setMessageType("success");
-
-                setTimeout(() => {
-                    navigate("/account");
-                }, 2000);
-            } else {
-                setMessage(data.error || " Registration failed.");
-                setMessageType("error");
-            }
+            setTimeout(() => {
+                navigate("/account");
+            }, 2000);
         } catch (error) {
             console.error("Registration error:", error);
-            setMessage(" Could not connect to the server.");
+            setMessage(error.response?.data?.error || " Could not connect to the server.");
             setMessageType("error");
         }
     };
@@ -73,6 +64,7 @@ const Register = () => {
                         <label>Username:</label>
                         <input
                             type="text"
+                            id ="username"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             required
@@ -81,6 +73,7 @@ const Register = () => {
                         <label>Password:</label>
                         <input
                             type="password"
+                            id="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
@@ -89,12 +82,13 @@ const Register = () => {
                         <label>Confirm Password:</label>
                         <input
                             type="password"
+                            id="confirmPassword"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             required
                         />
 
-                        <button type="submit" className="button">Register</button>
+                        <button type="submit" id="submit">Register</button>
                     </form>
 
                     {message && (
